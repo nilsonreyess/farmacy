@@ -1,15 +1,10 @@
-package vistas;
-
-import javax.swing.JOptionPane;
-import medicamentos.Pedido;
+package views;
 
 public class FrmImprime extends javax.swing.JFrame {
 
-    public FrmImprime(Pedido p) {
+    public FrmImprime() {
         initComponents();
         
-        this.setTitle("Pedido al distribuidor " + p.getDistribuidor());
-        imprimePedido(p);
     }
 
     /**
@@ -28,21 +23,11 @@ public class FrmImprime extends javax.swing.JFrame {
         lblDespachar = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         btnCancelar.setText("Cancelar Pedido");
-        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCancelarActionPerformed(evt);
-            }
-        });
 
         btnEnviar.setText("Enviar Pedido");
-        btnEnviar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEnviarActionPerformed(evt);
-            }
-        });
 
         lblPedido.setText("Pedido realizado");
 
@@ -97,27 +82,12 @@ public class FrmImprime extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
-        this.dispose();
-    }//GEN-LAST:event_btnCancelarActionPerformed
-
-    private void btnEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarActionPerformed
-        JOptionPane.showMessageDialog(null, "Pedido enviado.");
-        this.dispose();
-    }//GEN-LAST:event_btnEnviarActionPerformed
-
-    // Función que imprime el pedido.
-    private void imprimePedido(Pedido p) {
-        this.lblPedido.setText(p.getCantidad() + " unidades del " + p.getTipoMedicamento() + " " + p.getMedicamento());
-        this.lblDespachar.setText(p.getDespachar());
-    }
-    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnEnviar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel lblDespachar;
-    private javax.swing.JLabel lblPedido;
+    public javax.swing.JLabel lblPedido;
     // End of variables declaration//GEN-END:variables
 }

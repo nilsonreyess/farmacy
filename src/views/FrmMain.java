@@ -1,13 +1,10 @@
-package vistas;
+package views;
 
-import medicamentos.Pedido;
+public class FrmMain extends javax.swing.JFrame {
 
-public class FrmIntro extends javax.swing.JFrame {
-
-    public FrmIntro() {
+    public FrmMain() {
         initComponents();
         
-        ocultarMsgError();
     }
     
     /**
@@ -88,19 +85,9 @@ public class FrmIntro extends javax.swing.JFrame {
 
         btnBorrar.setFont(new java.awt.Font("Liberation Sans", 1, 13)); // NOI18N
         btnBorrar.setText("Borrar");
-        btnBorrar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBorrarActionPerformed(evt);
-            }
-        });
 
         btnConfirmar.setFont(new java.awt.Font("Liberation Sans", 1, 13)); // NOI18N
         btnConfirmar.setText("Confirmar");
-        btnConfirmar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnConfirmarActionPerformed(evt);
-            }
-        });
 
         lblErrMedicamento.setFont(new java.awt.Font("Liberation Sans", 1, 10)); // NOI18N
         lblErrMedicamento.setForeground(new java.awt.Color(255, 0, 0));
@@ -217,119 +204,29 @@ public class FrmIntro extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBorrarActionPerformed
-        limpiar();
-    }//GEN-LAST:event_btnBorrarActionPerformed
-
-    private void btnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmarActionPerformed
-        boolean confirma = verificar();        
-        if (confirma) {
-            Pedido p = new Pedido();
-            p.setMedicamento(this.txtMedicamento.getText());
-            p.setTipoMedicamento(this.cmbTipoMedicamento.getSelectedItem().toString());
-            p.setCantidad(Integer.parseInt(this.spnCantidad.getValue().toString()));
-            p.setDistribuidor(this.btgDistribuidor.getSelection().getActionCommand());
-            if (this.chkPrincipal.isSelected()) {
-                p.setDespachar(this.chkPrincipal.getText());
-            }
-            if (this.chkSucursal.isSelected()) {
-                p.setDespachar(this.chkSucursal.getText());
-            }
-            
-            FrmImprime imp = new FrmImprime(p);
-            imp.setVisible(true);
-            imp.setLocationRelativeTo(this);
-            limpiar();
-        }
-    }//GEN-LAST:event_btnConfirmarActionPerformed
-    
-    // Función que se encarga de ocultar los mensajes de error al iniciar la App.
-    private void ocultarMsgError() {
-        this.lblErrMedicamento.setVisible(false);
-        this.lblErrTipoMedicamento.setVisible(false);
-        this.lblErrCantidad.setVisible(false);
-        this.lblErrDistribuidor.setVisible(false);
-        this.lblErrSucursal.setVisible(false);
-    }
-    
-    // Función que se encarga de restablecer los valores iniciales.
-    private void limpiar() {
-        //Limpia los campos
-        this.txtMedicamento.setText("");
-        this.cmbTipoMedicamento.setSelectedIndex(0);
-        this.spnCantidad.setValue(0);
-        this.btgDistribuidor.clearSelection();
-        this.chkPrincipal.setSelected(false);
-        this.chkSucursal.setSelected(false);
-        ocultarMsgError();
-        
-    }
-    
-    // Función que se encarga de validar la información recibida.
-    private boolean verificar() {
-        if (this.txtMedicamento.getText().trim().equals("")) {
-            ocultarMsgError();
-            this.lblErrMedicamento.setVisible(true);
-            this.txtMedicamento.requestFocus();
-            return false;
-        }
-        
-        if (this.cmbTipoMedicamento.getSelectedIndex() == 0) {
-            ocultarMsgError();
-            this.lblErrTipoMedicamento.setVisible(true);
-            this.cmbTipoMedicamento.requestFocus();
-            return false;
-        }
-        
-        int cantidad = (Integer)this.spnCantidad.getValue();
-        if (cantidad <= 0) {
-            ocultarMsgError();
-            this.lblErrCantidad.setVisible(true);
-            this.spnCantidad.requestFocus();
-            return false;
-        }
-        
-        if (this.btgDistribuidor.getSelection() == null) {
-            ocultarMsgError();
-            this.lblErrDistribuidor.setVisible(true);
-            this.rdbCofarma.requestFocus();
-            return false;
-        }
-        
-        if (!this.chkPrincipal.isSelected() && !this.chkSucursal.isSelected()) {
-            ocultarMsgError();
-            this.lblErrSucursal.setVisible(true);
-            this.chkPrincipal.requestFocus();
-            return false;
-        }
-        
-        return true;
-    }
-
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup btgDistribuidor;
     private javax.swing.JButton btnBorrar;
-    private javax.swing.JButton btnConfirmar;
+    public javax.swing.JButton btnConfirmar;
     private javax.swing.JCheckBox chkPrincipal;
     private javax.swing.JCheckBox chkSucursal;
-    private javax.swing.JComboBox<String> cmbTipoMedicamento;
+    public javax.swing.JComboBox<String> cmbTipoMedicamento;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel lblCantidad;
     private javax.swing.JLabel lblDespachar;
     private javax.swing.JLabel lblDistribuidor;
-    private javax.swing.JLabel lblErrCantidad;
-    private javax.swing.JLabel lblErrDistribuidor;
-    private javax.swing.JLabel lblErrMedicamento;
-    private javax.swing.JLabel lblErrSucursal;
-    private javax.swing.JLabel lblErrTipoMedicamento;
+    public javax.swing.JLabel lblErrCantidad;
+    public javax.swing.JLabel lblErrDistribuidor;
+    public javax.swing.JLabel lblErrMedicamento;
+    public javax.swing.JLabel lblErrSucursal;
+    public javax.swing.JLabel lblErrTipoMedicamento;
     private javax.swing.JLabel lblMedicamento;
     private javax.swing.JLabel lblTipoMedicamento;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JRadioButton rdbCemefar;
     private javax.swing.JRadioButton rdbCofarma;
     private javax.swing.JRadioButton rdbEmpsephar;
-    private javax.swing.JSpinner spnCantidad;
-    private javax.swing.JTextField txtMedicamento;
+    public javax.swing.JSpinner spnCantidad;
+    public javax.swing.JTextField txtMedicamento;
     // End of variables declaration//GEN-END:variables
 }
