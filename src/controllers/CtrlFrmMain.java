@@ -15,6 +15,7 @@ public class CtrlFrmMain implements ActionListener{
     public CtrlFrmMain(FrmMain frm) {
         this.frmMain = frm;
         this.frmMain.btnConfirmar.addActionListener(this);
+        this.frmMain.btnBorrar.addActionListener(this);
         ocultarMensajesdeError();
     }
     
@@ -33,6 +34,7 @@ public class CtrlFrmMain implements ActionListener{
                 p.setCantidad((int) this.frmMain.spnCantidad.getValue());
                 // p.distribuidor
                 // p.sucursal
+                limpiar();
                 
                 FrmImprime frmImprime = new FrmImprime();
                 CtrlFrmImprime ctrlImprime = new CtrlFrmImprime(frmImprime, p);
@@ -40,6 +42,9 @@ public class CtrlFrmMain implements ActionListener{
                 frmImprime.setVisible(true);
                 frmImprime.setLocationRelativeTo(frmMain);
             } 
+        }
+        if (e.getSource() == this.frmMain.btnBorrar) {
+            limpiar();
         }
     }
     
@@ -50,6 +55,17 @@ public class CtrlFrmMain implements ActionListener{
         this.frmMain.lblErrCantidad.setVisible(false);
         this.frmMain.lblErrDistribuidor.setVisible(false);
         this.frmMain.lblErrSucursal.setVisible(false);
+    }
+    
+    private void limpiar() {
+        //Limpia los campos
+        this.frmMain.txtMedicamento.setText("");
+        this.frmMain.cmbTipoMedicamento.setSelectedIndex(0);
+        this.frmMain.spnCantidad.setValue(0);
+        this.frmMain.btgDistribuidor.clearSelection();
+        this.frmMain.chkPrincipal.setSelected(false);
+        this.frmMain.chkSucursal.setSelected(false);
+        ocultarMensajesdeError();
     }
     
     public boolean validarCampos() {
@@ -72,4 +88,6 @@ public class CtrlFrmMain implements ActionListener{
         
         return validate;
     }
+    
+    
 }

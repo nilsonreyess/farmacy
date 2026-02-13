@@ -205,11 +205,11 @@ public class FrmMain extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.ButtonGroup btgDistribuidor;
-    private javax.swing.JButton btnBorrar;
+    public javax.swing.ButtonGroup btgDistribuidor;
+    public javax.swing.JButton btnBorrar;
     public javax.swing.JButton btnConfirmar;
-    private javax.swing.JCheckBox chkPrincipal;
-    private javax.swing.JCheckBox chkSucursal;
+    public javax.swing.JCheckBox chkPrincipal;
+    public javax.swing.JCheckBox chkSucursal;
     public javax.swing.JComboBox<String> cmbTipoMedicamento;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel lblCantidad;

@@ -83,11 +83,11 @@ public class FrmImprime extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCancelar;
-    private javax.swing.JButton btnEnviar;
+    public javax.swing.JButton btnCancelar;
+    public javax.swing.JButton btnEnviar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JLabel lblDespachar;
+    public javax.swing.JLabel lblDespachar;
     public javax.swing.JLabel lblPedido;
     // End of variables declaration//GEN-END:variables
 }
